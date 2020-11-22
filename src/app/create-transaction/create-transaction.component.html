@@ -1,0 +1,67 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">WuTang Financial Bank</h1>
+    <p class="lead">Serving America since 1991</p>
+  </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link " [routerLink] = "['/']">Home </a>
+      <a class="nav-item nav-link " [routerLink] = "['/accounts']">Accounts </a>
+      <a class="nav-item nav-link " [routerLink] = "['/customers']">Customers </a>
+      <a class="nav-item nav-link active" [routerLink] = "['/transactions']">Transactions <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" [routerLink] = "['/bills']">Bills</a>
+    </div>
+  </div>
+</nav>
+<br>
+<div class="container" id="chicken">
+<form (ngSubmit)="createTransaction()">
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Type</label>
+        <select class="form-control" id="inlineFormCustomSelect" required [(ngModel)]="transaction.type" name="type">
+            <option selected disabled >Choose...</option>
+          <option>Deposit</option>
+          <option>Withdrawal</option>
+          <option>P2P</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1" *ngIf="transaction.type" >Payee Account ID</label>
+        <input [value]="id" *ngIf="transaction.type === 'Deposit'" type="input" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="payeeAccountId" disabled>
+        <input *ngIf="transaction.type === 'Withdrawal'" type="input" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="payeeAccountId" disabled>
+        <input [(ngModel)]="transaction.payeeAccountId" *ngIf="transaction.type === 'P2P'" type="input" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="payeeAccountId" >
+
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1"  *ngIf="transaction.type">Payer Account ID</label>
+        <input  [value]="id" type="input" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" *ngIf="transaction.type === 'P2P' || transaction.type === 'Withdrawal'" name="payerAccountId" disabled>
+        
+        <input  type="input" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" *ngIf="transaction.type === 'Deposit'"name="payerAccountId" disabled>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Medium</label>
+        <select class="form-control" id="inlineFormCustomSelect" required [(ngModel)]="transaction.medium" name="medium">
+            <option selected disabled >Choose...</option>
+          <option>Balance</option>
+          <option>Rewards</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Amount</label>
+        <input type="input" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required [(ngModel)] ="transaction.amount" name="amount">
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Description</label>
+        <input type="input" class="form-control" id="exampleFormControlInput1" [(ngModel)]="transaction.description" rows="3" name="description">
+      </div>
+    
+    <button  type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+  </form>
+</div>
+  

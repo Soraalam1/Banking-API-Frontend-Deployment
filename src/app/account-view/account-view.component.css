@@ -1,0 +1,72 @@
+
+.clickable {
+cursor: pointer;
+}
+
+/* #btn {
+display: inline-block;
+margin-block-start: o;
+} */
+
+button{
+display: inline;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.buttons-flex {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+}
+
+#rowofcard{
+margin-top: 2%;
+display: flex;
+align-items: stretch;
+margin-bottom: 2%;
+
+}
+.card {
+height: 100%;
+
+}
+
+td {
+    text-align: center;
+    height: 100%;
+}
+
+#import{
+    font-weight: bold;
+}
+
+.row{
+    align-self: center;
+    justify-content: space-evenly center;
+}
+
+#money{
+    color: green;
+}
+
+.highlight{
+    color: green;
+}
+
+.highlightB{
+    color: blue;
+}
+
+#blue{
+    color: blue;
+}
+
+.clickable:hover{
+    background-color: lightgray;
+   
+}
+.nav-item{
+    font-weight: bolder;
+  }

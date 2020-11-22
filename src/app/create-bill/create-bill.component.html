@@ -1,0 +1,88 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">WuTang Financial Bank</h1>
+    <p class="lead">Serving America since 1991</p>
+  </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link " [routerLink] = "['/']">Home </a>
+      <a class="nav-item nav-link " [routerLink] = "['/accounts']">Accounts </a>
+      <a class="nav-item nav-link " [routerLink] = "['/customers']">Customers </a>
+      <a class="nav-item nav-link " [routerLink] = "['/transactions']">Transactions </a>
+      <a class="nav-item nav-link active" [routerLink] = "['/bills']">Bills <span class="sr-only">(current)</span></a>
+    </div>
+  </div>
+</nav>
+<!-- ngModel is a directive which binds input -->
+<div class="card" style="width: 25rem;" id="chicken">
+    <h3>Enter Bill Information:</h3>
+    <form (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+          <label for="formGroupExampleInput">Payee</label>
+          <input
+          name="payeeInput"
+          #payeeInput="ngModel"
+          id="payeeInput"
+          type="text"
+          class="form-control"
+          required [(ngModel)]="bill.payee">
+       <div class="alert alert-danger" *ngIf="payeeInput.touched && !payeeInput.valid">Payee is required!</div>
+        </div>
+
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Nickname</label>
+          <input
+          name="nicknameInput"
+          #nicknameInput="ngModel"
+          id="nicknameInput"
+          type="text"
+          class="form-control"
+          required [(ngModel)]="bill.nickname" >
+          <div class="alert alert-danger" *ngIf="nicknameInput.touched && !nicknameInput.valid">Nickname is required!</div>
+        </div>
+
+        <label for="formGroupExampleInput1">Schedule A Day</label>
+        <div class="form-group">
+          <link rel ="stylesheet" href ="https://unpkg.com/ngx-bootstrap/datepicker/bs-datepicker.css">
+            <div class="container" >
+              <div class="row">
+                <div class="col-8 col-8 col-lg-6 form-group">
+                  <input
+                  name="recurringDateInput"
+                  #recurringDate="ngModel"
+                  id="paymentDateInput"
+                  type="button"
+                  placeholder="Datepicker"
+                  class="form-control"
+                  bsDatepicker
+                  [(ngModel)]="selection"
+                  [minDate]="minDate"
+                  [maxDate]="maxDate">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="formGroupExampleInput2">Payment Amount</label>
+            <input
+            name="paymentAmountInput"
+            #paymentAmountInput="ngModel"
+            id="paymentAmountInput"
+            type="text"
+            class="form-control"
+            required [(ngModel)]="bill.paymentAmount">
+            <div class="alert alert-danger" *ngIf="paymentAmountInput.touched && !paymentAmountInput.valid">Payment Amount is required!</div>
+          </div>
+          <div>
+            <button type="submit" class="btn btn-primary">Create</button>
+          </div>
+      </form>
+    </div>

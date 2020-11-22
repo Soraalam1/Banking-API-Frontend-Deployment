@@ -1,0 +1,15 @@
+
+#chicken {
+        border-radius: 15px 50px;
+        background-color: rgb(170, 207, 212);
+        padding: 20px;
+        width: auto;
+        height: auto;
+}
+button{
+        background-color: rgb(26, 57, 61);
+}
+
+.nav-item{
+        font-weight: bolder;
+      }

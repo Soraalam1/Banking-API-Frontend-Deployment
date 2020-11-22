@@ -1,0 +1,10 @@
+.card {
+  display:inline-block;
+  margin-top: 25px;
+}
+.nav-item{
+  font-weight: bolder;
+}
+button{
+  margin-bottom: 10px;
+}

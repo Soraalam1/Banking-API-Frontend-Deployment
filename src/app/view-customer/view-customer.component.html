@@ -1,0 +1,108 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">WuTang Financial Bank</h1>
+    <p class="lead">Serving America since 1991</p>
+  </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link " [routerLink] = "['/']">Home </a>
+      <a class="nav-item nav-link " [routerLink] = "['/accounts']">Accounts </a>
+      <a class="nav-item nav-link active " [routerLink] = "['/customers']">Customers <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link " [routerLink] = "['/transactions']">Transactions </a>
+      <a class="nav-item nav-link " [routerLink] = "['/bills']">Bills </a>
+    </div>
+  </div>
+</nav>
+<!-- Start of Customer Card -->
+
+<div class="container">
+  <button type="button" id="viewAll" (click)="goToAllCustomers()" class="btn btn-outline-primary" data-toggle="button" aria-pressed="false" autocomplete="off"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+  </svg> View All Customers</button>
+    <div class="row" >
+
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-header">
+            <h4>Customer Details</h4>
+          </div>
+          <div class="card-body">
+              <div id="firstcard">
+                  <h5><b>Customer ID:</b> {{customer.id}}</h5>
+                  <h5><b>First Name:</b> {{customer.firstName}}</h5>
+                  <h5><b>Last Name:</b> {{customer.lastName}}</h5>
+                  <h5 *ngIf = "customer.address[0]"><b>Address 1: </b>{{customer.address[0].streetNumber}} {{customer.address[0].streetName}} {{customer.address[0].city}}, {{customer.address[0].state}}, {{customer.address[0].zip}}</h5>
+                  <h5 *ngIf = "customer.address[1]"><b>Address 2: </b>{{customer.address[1].streetNumber}} {{customer.address[1].streetName}} {{customer.address[1].city}}, {{customer.address[1].state}}, {{customer.address[1].zip}}</h5>
+              </div>
+          </div>
+        </div>
+      </div>
+      <!-- <ul class="list-group list-group-flush">
+          <li class="list-group-item"><b>Customer ID:</b> {{customer.id}}</li>
+          <li class="list-group-item"><b>First Name:</b> {{customer.firstName}}</li>
+          <li class="list-group-item"><b>Last Name:</b> {{customer.lastName}}</li>
+          <li class="list-group-item" *ngIf = "customer.address[0]"><b>Address 1:</b> {{customer.address[0].streetNumber}} {{customer.address[0].streetName}} {{customer.address[0].city}}, {{customer.address[0].state}}, {{customer.address[0].zip}}</li>
+          <li class="list-group-item" *ngIf = "customer.address[1]"><b>Address 2:</b> {{customer.address[1].streetNumber}} {{customer.address[1].streetName}} {{customer.address[1].city}}, {{customer.address[1].state}}, {{customer.address[1].zip}}</li>
+      </ul> -->
+    </div>
+  </div>
+<!-- End of Customer Card -->
+
+<!-- Create New Account Button -->
+<div class="buttons-flex">
+  <button type="button" (click)="goToCreateAccount()" class="btn btn-outline-success">Create Account</button>
+    <button type="button" (click)="goToEditCustomer()" class="btn btn-outline-warning">Edit Customer</button>
+</div>
+<!--  </div>-->
+<!-- Start of Accounts Table -->
+<!--  <div class="container">-->
+<!--    <div class='card'>-->
+<!--      <div class='card-header'>-->
+<!--      </div>-->
+<!--      <div class='card-body'>-->
+<!--        <div class='row'>-->
+<!--          <div class='col-md-2'>Filter by Nickname:</div>-->
+<!--          <div class='col-md-4'>-->
+<!--            <input type='text'-->
+<!--                   [(ngModel)]='listFilter' />-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class='row'-->
+<!--             *ngIf='listFilter'>-->
+<!--          <div class='col-md-6'>-->
+<!--            <h4>Filtered by: {{_listFilter}}</h4>-->
+<!--          </div>-->
+<!--        </div>-->
+        <br>
+<div class="container">
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Account ID</th>
+          <th scope="col">Account Type</th>
+          <th scope="col">Account Nickname</th>
+          <th scope="col">Account Rewards</th>
+          <th scope="col">Account Balance</th>
+          <!-- <th scope="col">Customer ID</th> -->
+<!--          <th scope="col">Action</th>-->
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="clickable" *ngFor="let account of accounts" [routerLink]="['/accounts/'+account.id]">
+          <th scope="row">{{account.id}}</th>
+          <td>{{account.type}}</td>
+          <td>{{account.nickname}}</td>
+          <td>{{account.rewards}}</td>
+          <td>{{account.balance | currency}}</td>
+          <!-- <td>{{account.customerId}}</td> -->
+<!--          <td><button type="button" (click)="delete(account.id); clickStopper($event)" class="btn btn-danger">Delete</button></td>-->
+        </tr>
+      </tbody>
+    </table>
+  </div>

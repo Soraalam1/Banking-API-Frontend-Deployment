@@ -1,0 +1,47 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">WuTang Financial Bank</h1>
+    <p class="lead">Serving America since 1991</p>
+  </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link " [routerLink] = "['/']">Home </a>
+      <a class="nav-item nav-link active " [routerLink] = "['/accounts']">Accounts <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link " [routerLink] = "['/customers']">Customers </a>
+      <a class="nav-item nav-link " [routerLink] = "['/transactions']">Transactions  </a>
+      <a class="nav-item nav-link" [routerLink] = "['/bills']">Bills</a>
+    </div>
+  </div>
+</nav>
+<br>
+<div class="container">
+  <h3>Edit Account</h3>
+    <form (ngSubmit)="editAccount()" class="need-validation" novalidate>
+      <div class="card text-center" style="width: 36rem;">
+        <div class="card-body">
+        <label for="validationServerUsername">Nickname</label>
+          <div class="input-group">
+            <input type="text" class="form-control is-valid" id="validationServerUsername" aria-describedby="inputGroupPrepend3" required [(ngModel)]="account.nickname" name="nickname">
+          </div>
+        </div>
+
+      <div class="col-md-12">
+      <label for="validationServer03">Account Type</label>
+        <select class="custom-select is-valid" id="validationServer03" required [(ngModel)]="account.type" name="type">
+          <option selected disabled value="">Choose...</option>
+          <option>Savings</option>
+          <option>Checking</option>
+          <option>Credit</option>
+        </select>
+      </div>
+        <br>
+      <button class="btn btn-primary" type="submit">Submit form</button>
+      </div>
+    </form>
+  </div>

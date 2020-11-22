@@ -1,0 +1,109 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">WuTang Financial Bank</h1>
+    <p class="lead">Serving America since 1991</p>
+  </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link " [routerLink] = "['/']">Home </a>
+      <a class="nav-item nav-link active " [routerLink] = "['/accounts']" >Accounts <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link " [routerLink] = "['/customers']" >Customers </a>
+      <a class="nav-item nav-link " [routerLink] = "['/transactions']" >Transactions  </a>
+      <a class="nav-item nav-link" [routerLink] = "['/bills']" >Bills</a>
+    </div>
+  </div>
+</nav>
+<div class="container" id = "rowofcard">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="card text-center">
+        <div class="clickable">
+          <div class="card-header" id="import" [routerLink] = "['/customers/', customer.id]" >
+            Customer Name: {{customer.firstName}} {{customer.lastName}}
+          </div>
+        </div> 
+        
+        <div class="card-body">
+          <h5 class="card-title">Account ID: {{account.id}}</h5>
+          <p class="card-text" id="import">Type: {{account.type}} </p>
+          <p class="card-text" id="import">Nickname: {{account.nickname}} </p>
+          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="card text-center">
+        <div class="card-header" id="import">
+          Balance:
+        </div>
+        <div class="card-body">
+          <h5 class="card-title" id="money">{{account.balance | currency}}</h5>
+          <p class="card-text">This is current balance on this account!</p>
+          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="card text-center">
+        <div class="card-header" id="import">
+          Rewards:
+        </div>
+        <div class="card-body">
+          <h5 class="card-title" id="blue">{{account.rewards}}</h5>
+          <p class="card-text">This is current rewards on this account!</p>
+          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="container">
+  <h1>Current Balance: {{account.balance | currency: 'USD'}}</h1>
+<h1>Rewards: {{account.rewards}}</h1>
+</div> -->
+<div class="buttons-flex">
+  <button type="button" id="btn" class="btn btn-outline-primary" (click) = "goToEditAccount(account.id)">Edit</button>
+  <button type="button" id="btn" class="btn btn-outline-danger" (click) = "deleteAccount(account.customerId,account.id)">Delete Account</button>
+  <button type="button" id="btn" class="btn btn-outline-success" (click) = "goToCreateTransaction(account.id)">Create Transaction</button>
+  <button type="button" id="btn" class="btn btn-outline-primary" (click) = "gotoAccountBills(account.id)">Bills</button>
+</div>
+<br>
+<div class="container">
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Type</th>
+        <th scope="col">Date</th>
+        <th scope="col">Status</th>
+        <th scope="col">Recipient Account ID</th>
+        <th scope="col">Payer Account ID</th>
+        <th scope="col">Medium</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="clickable" *ngFor = "let transaction of transactions" ng-class="{highlightRow: transaction.medium === 'Rewards'}" [routerLink] = "['/transactions/', transaction.id]">
+        <!-- <th scope="row">{{transaction.id}}</th> -->
+        <td>{{transaction.id}}</td>
+        <td>{{transaction.type}}</td>
+        <td>{{transaction.transactionDate}}</td>
+        <td>{{transaction.status}}</td>
+        <td>{{transaction.payeeAccountId}}</td>
+        <td>{{transaction.payerAccountId}}</td>
+        <td [ngClass]="{'highlight' : transaction.medium === 'Balance', 'highlightB' : transaction.medium === 'Rewards'}">{{transaction.medium}}</td>
+        <td *ngIf = "transaction.medium === 'Rewards'; else elseBlock">{{transaction.amount}}</td>
+        <ng-template #elseBlock> <td> {{transaction.amount | currency}}</td></ng-template>
+        <td>{{transaction.description}}</td>
+        <!-- <button type="button" class="btn btn-dark" (onclick)="goToTransactionsView({{transaction.id}})">See Transactions</button> -->
+      </tr>
+    </tbody>
+  </table>
+</div>

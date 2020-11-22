@@ -1,0 +1,66 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">WuTang Financial Bank</h1>
+    <p class="lead">Serving America since 1991</p>
+  </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link " [routerLink] = "['']">Home </a>
+      <a class="nav-item nav-link " [routerLink] = "['accounts']">Accounts </a>
+      <a class="nav-item nav-link active " [routerLink] = "['customers']">Customers <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link " [routerLink] = "['transactions']">Transactions </a>
+      <a class="nav-item nav-link " [routerLink] = "['bills']">Bills </a>
+    </div>
+  </div>
+</nav>
+<div id="formcard" class="container">
+  <div class="card" style="width: 50rem;">
+    <div class="card-body">
+      <form [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+        <label for="" id="title1">Customer Information:</label>
+        <br>
+        <label for="">FirstName:
+        <input formControlName="firstName" /></label>
+        <label for="">  LastName:
+        <input formControlName="lastName" /></label>
+        <br>
+        <label for="" id="title">Address:</label>
+        <div formGroupName="address">
+            <label for="">Street Number:
+            <input formControlName="streetNumber" />
+            </label>
+            <label for="">Street Name:
+            <input formControlName="streetName" /></label>
+            <label for=""> City:
+            <input formControlName="city" /></label>
+            <label for="">State:
+            <input formControlName="state" /></label>
+            <label for="">Zip:
+            <input formControlName="zip" /></label>
+            </div>
+            <label for="" id="title">Address 2 (Optional) :</label>
+            <div formGroupName="address1">
+            <label for="">Street Number:
+            <input formControlName="streetNumber" />
+            </label>
+            <label for="">Street Name:
+            <input formControlName="streetName" /></label>
+            <label for=""> City:
+            <input formControlName="city" /></label>
+            <label for="">State:
+            <input formControlName="state" /></label>
+            <label for="">Zip:
+            <input formControlName="zip" /></label>
+          </div>
+        <button class="btn btn-primary" type="submit" [disabled]="!customerForm.valid">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+

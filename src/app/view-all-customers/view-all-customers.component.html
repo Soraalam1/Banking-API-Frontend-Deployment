@@ -1,0 +1,63 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">WuTang Financial Bank</h1>
+    <p class="lead">Serving America since 1991</p>
+  </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link " [routerLink] = "['/']">Home </a>
+      <a class="nav-item nav-link " [routerLink] = "['/accounts']">Accounts </a>
+      <a class="nav-item nav-link active " [routerLink] = "['/customers']">Customers <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link " [routerLink] =" ['/transactions']">Transactions </a>
+      <a class="nav-item nav-link " [routerLink] = "['/bills']">Bills </a>
+    </div>
+  </div>
+</nav>
+<div class="container">
+    <h2>All Customers</h2>
+    </div>
+    <div class="container">
+      <button type="button" (click)="goToCreateNewCustomer()" class="btn btn-secondary" data-toggle="button" aria-pressed="false" autocomplete="off">Create Customer</button>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+          <div class='card-body'>
+            <div id="filtercontainer">
+                    <div class='row'>
+                      <div class='col-md-5'>Filter by Last Name:
+                      <div class='col-md-3'></div></div>
+                        <input type='text'
+                               [(ngModel)]='listFilter'>
+                              </div>
+                            </div>
+                            </div>
+                          
+          <tr>
+            <th scope="col">Customer ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Primary Address</th>
+          </tr>
+        </thead>
+
+
+        <tbody>
+          <tr class="clickable" *ngFor = "let customer of customers" [routerLink] = "['/customers/', customer.id]">
+            <td>{{customer.id}}</td>
+            <td>{{customer.firstName}}</td>
+            <td>{{customer.lastName}}</td>
+            <td>{{customer.address[0].streetNumber}} {{customer.address[0].streetName}}, {{customer.address[0].city}}, {{customer.address[0].state}}, {{customer.address[0].zip}}</td>
+            <!-- <td>{{customer.address[1].streetNumber}} {{customer.address[1].streetName}}, {{customer.address[1].city}}, {{customer.address[1].state}}, {{customer.address[1].zip}}</td> -->
+            <!-- <button type="button" class="btn btn-dark" (onclick)="goToTransactionsView({{transaction.id}})">See Transactions</button> -->
+          </tr>
+          <div>
+            <!-- <button type="button" (click) = "goToCreateTransaction(account.id)">Create Transaction</button> -->
+          </div>
+        </tbody>
+      </table>
+    </div>

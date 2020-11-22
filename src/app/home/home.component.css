@@ -1,0 +1,23 @@
+.container{
+  margin-top: 25px;
+}
+.row-1{
+  margin-bottom: 25px;
+}
+
+#horse {
+  border-radius: 15px 50px;
+  background-color: rgb(170, 207, 212);
+  padding: 20px;
+}
+
+#team {
+  background-color: white;
+}
+button{
+  background-color: rgb(79, 158, 168);
+}
+
+.nav-item{
+  font-weight: bolder;
+}

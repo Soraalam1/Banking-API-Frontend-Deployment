@@ -1,0 +1,83 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">WuTang Financial Bank</h1>
+    <p class="lead">Serving America since 1991</p>
+  </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link " [routerLink] = "['']">Home </a>
+      <a class="nav-item nav-link " [routerLink] = "['/accounts']">Accounts </a>
+      <a class="nav-item nav-link " [routerLink] = "['/customers']">Customers </a>
+      <a class="nav-item nav-link " [routerLink] = "['/transactions']">Transactions </a>
+      <a class="nav-item nav-link active" [routerLink] = "['/bills']">Bills <span class="sr-only">(current)</span></a>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container">
+    <h2>All Bills</h2>
+    <div class='card'>
+      <div class='card-header'>
+      </div>
+      <div class='card-body'>
+<div id="filtercontainer">
+        <div class='row'>
+          <div class='col-md-3'>Filter by Nickname:</div>
+          <div class='col-md-3'>
+            <input type='text'
+                   [(ngModel)]='listFilter'>
+          </div>
+        </div>
+        <div class='row'
+             *ngIf='listFilter'>
+          <div class='col-md-6'>
+            <h5>Filtered by: {{listFilter}}</h5>
+          </div>
+        </div>
+
+      </div>
+
+        <br>
+<div class="container2">
+    <table class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Status</th>
+        <th scope="col">Payee</th>
+        <th scope="col">Nickname</th>
+        <th scope="col">Creation Date</th>
+        <th scope="col">Payment Date</th>
+        <th scope="col">Recurring Date</th>
+        <th scope="col">Upcoming Payment</th>
+        <th scope="col">Payment Amount</th>
+        <th scope="col">Account ID</th>
+        <tr>
+    </thead>
+<tbody>
+   <tr *ngFor="let bill of bills" [routerLink]="['/bills/', bill.id]" >
+        <td>{{bill.id}}</td>
+        <td>{{bill.status}}</td>
+        <td>{{bill.payee}}</td>
+        <td>{{bill.nickname}}</td>
+        <td>{{bill.creationDate}}</td>
+        <td>{{bill.paymentDate}}</td>
+        <td>{{bill.recurringDate}}</td>
+        <td>{{bill.upcomingPaymentDate}}</td>
+        <td>{{bill.paymentAmount | currency}}</td>
+        <td>{{bill.accountId}}</td></tr>
+</tbody>
+</table>
+
+
+</div>
+
+
+

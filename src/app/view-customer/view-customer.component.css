@@ -1,0 +1,29 @@
+/* .card{
+    margin-left: auto;
+    margin-right: auto;
+} */
+
+.container{
+    margin-top: 20px;
+}
+
+.row{
+    margin-bottom: 26px;
+    justify-content: center;
+}
+
+#viewAll{
+margin-top: 20px;
+margin-bottom: 20px;
+
+}
+
+.buttons-flex {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-evenly
+}
+.nav-item{
+    font-weight: bolder;
+  }

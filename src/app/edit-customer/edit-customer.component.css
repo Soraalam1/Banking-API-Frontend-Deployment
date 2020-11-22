@@ -1,0 +1,32 @@
+.container {
+    clear: both;
+  }
+  
+  .container input {
+    width: 100%;
+    clear: both;
+  }
+
+  #title{
+      font-weight: bold;
+  }
+  .card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+}
+
+#title1{
+    font-weight: bold;
+    text-align: center;
+}
+#editcustomer{
+  margin-top: 50px;
+}
+
+button{
+  background-color: rgb(79, 158, 168);
+}
+.nav-item{
+  font-weight: bolder;
+}

@@ -1,0 +1,94 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">WuTang Financial Bank</h1>
+    <p class="lead">Serving America since 1991</p>
+  </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active " [routerLink] = "['']" >Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link " [routerLink] = "['/accounts']" >Accounts</a>
+      <a class="nav-item nav-link " [routerLink] = "['/customers']" >Customers </a>
+      <a class="nav-item nav-link " [routerLink] = "['/transactions']" >Transactions  </a>
+      <a class="nav-item nav-link" [routerLink] = "['/bills']" >Bills</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container" id="horse">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card text-center">
+        <div class="card-body">
+          <h4 class="card-title">Accounts List Page</h4>
+          <p class="card-text">If you want to navigate and see every <b>account</b> click the button below.</p>
+          <button class="btn btn-primary" (click)="goToAccountListPage()">See All Accounts</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card text-center">
+        <div class="card-body">
+          <h4 class="card-title">Customers List Page</h4>
+          <p class="card-text">If you want to navigate and see every <b>customer</b> click the button below.</p>
+          <button class="btn btn-primary" (click)="goToCustomersListPage()">See All Customers</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card text-center">
+        <div class="card-body">
+          <h4 class="card-title">Transactions List Page</h4>
+          <p class="card-text">If you want to navigate and see every <b>transaction</b> click the button below.</p>
+          <button class="btn btn-primary" (click)="goToTransactionListPage()">See All Transactions</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card text-center">
+        <div class="card-body">
+          <h4 class="card-title">Bills List Page</h4>
+          <p class="card-text">If you want to navigate and see every <b>bill</b> click the button below.</p>
+          <button class="btn btn-primary" (click)="goToBillsListPage()">See All Bills</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br>
+  <hr>
+  <br>
+
+  <div class="row-1">
+    <div class="card" id="team">
+      <div class="card-footer">
+        <h4>The Dream Team</h4>
+      </div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <b>Director & Project Manager:</b>
+          Dean "The Dream" Alam
+          <hr>
+          <b>Admin:</b>
+          Corey "Super Negro" Mitchell |
+          Raymundo "Comatose" Escobar
+          <hr>
+          <b>Team:</b>
+          Asher "Ash Puppy" Louis-Jean |
+          Darren "Evil Genius" Salgado |
+          Jadyn "First Lady" Hammett |
+          Ryan "Vanilla Ice" Batchelor |
+          Yasmin "Yasss" Herrera
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</div>

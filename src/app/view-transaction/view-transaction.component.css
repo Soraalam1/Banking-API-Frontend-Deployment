@@ -1,0 +1,29 @@
+/* .card-header{
+    background-color: darkgrey;
+} */
+
+/* #lobster {
+    margin-left: auto;
+    margin-right: auto;
+} */
+
+.btn{
+    margin-left: 2%;
+    margin-right: 2%;
+}
+.container{
+    margin-top: 20px;
+}
+
+.row{
+    margin-bottom: 26px;
+    justify-content: center;
+}
+
+.card{
+    margin-left: auto;
+    margin-right: auto;
+}
+.nav-item{
+    font-weight: bolder;
+  }

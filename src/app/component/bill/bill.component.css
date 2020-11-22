@@ -1,0 +1,23 @@
+h2{
+    margin: 10px;
+    text-align: center;
+}
+td{
+    word-break: break-all;
+}
+
+.container2{
+    width: 200px;
+    margin-left: 5%;
+}
+#filtercontainer{
+    margin-left: 50px;
+}
+h5{
+    color: green;
+}
+
+
+.nav-item{
+    font-weight: bolder;
+}

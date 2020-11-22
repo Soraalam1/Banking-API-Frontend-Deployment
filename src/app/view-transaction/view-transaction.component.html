@@ -1,0 +1,53 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">WuTang Financial Bank</h1>
+    <p class="lead">Serving America since 1991</p>
+  </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link " [routerLink] = "['/']">Home </a>
+      <a class="nav-item nav-link " [routerLink] = "['/accounts']">Accounts </a>
+      <a class="nav-item nav-link " [routerLink] = "['/customers']">Customers </a>
+      <a class="nav-item nav-link active" [routerLink] = "['/transactions']">Transactions <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" [routerLink] = "['/bills']">Bills</a>
+    </div>
+  </div>
+</nav>
+
+<br>
+<div class="container" id="lobster">
+  <button type="button" id="viewAll" (click)="goToAllTransactions()" class="btn btn-outline-primary" data-toggle="button" aria-pressed="false" autocomplete="off"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+  </svg> View All Transactions</button>
+  <div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-header">
+        <h4>Transaction Details</h4>
+      </div>
+      <div class="card-body">
+          <div id="firstcard">
+              <h5><b>Transaction ID:</b> {{transaction.id}}</h5>
+              <h5><b>Type:</b> {{transaction.type}}</h5>
+              <h5><b>Date:</b> {{transaction.transactionDate}}</h5>
+              <h5><b>Status:</b> {{transaction.status}}</h5>
+              <h5 *ngIf = "transaction.payeeAccountId"><b>Payee Account ID: </b>{{transaction.payeeAccountId}}</h5>
+              <h5 *ngIf = "transaction.payerAccountId"><b>Payer Account ID: </b>{{transaction.payerAccountId}}</h5>
+              <h5><b>Medium:</b> {{transaction.medium}}</h5>
+              <h5 *ngIf = "transaction.medium === 'Rewards'; else elseBlock"><b>Rewards: </b>{{transaction.amount}}</h5>
+              <ng-template #elseBlock><h5><b>Balance: </b>{{transaction.amount | currency}}</h5></ng-template>
+  
+          </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+</div>
+
