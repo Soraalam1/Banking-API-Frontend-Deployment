@@ -42,12 +42,12 @@
               <h5><b>Medium:</b> {{transaction.medium}}</h5>
               <h5 *ngIf = "transaction.medium === 'Rewards'; else elseBlock"><b>Rewards: </b>{{transaction.amount}}</h5>
               <ng-template #elseBlock><h5><b>Balance: </b>{{transaction.amount | currency}}</h5></ng-template>
-  
+            <button class="btn btn-danger" (click)="cancelTransaction()">Cancel Transaction</button>
           </div>
       </div>
     </div>
   </div>
-  
+
 </div>
 </div>
 
